@@ -16,7 +16,6 @@ Pluto is a superset of Lua 5.4 with a focus on general-purpose programming.
 %autosetup -n Pluto-%{version}
 
 %build
-cd plutolang-%{version}/src
 make -j$(nproc) PLAT=linux-readline
 
 %install
