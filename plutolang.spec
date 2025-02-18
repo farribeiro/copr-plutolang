@@ -45,5 +45,5 @@ install -m 644 plutolang-%{version}/LICENSE %{buildroot}/usr/share/licenses/%{na
 /usr/share/licenses/%{name}/LICENSE
 
 %changelog
-* Mon Feb 18 2025 Maintainer <sainan@calamity.gg> - 0.10.4-1
+* Tue Feb 18 2025 Maintainer <sainan@calamity.gg> - 0.10.4-1
 - Initial RPM package
