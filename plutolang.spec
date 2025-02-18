@@ -13,9 +13,6 @@ Conflicts:      pluto
 %description
 Pluto is a superset of Lua 5.4 with a focus on general-purpose programming.
 
-%prep
-git clone --depth 1 --branch %{version} https://github.com/PlutoLang/Pluto plutolang-%{version}
-
 %build
 cd plutolang-%{version}/src
 make -j$(nproc) PLAT=linux-readline
