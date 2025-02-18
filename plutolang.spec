@@ -3,8 +3,7 @@ Version:        0.10.4
 Release:        1%{?dist}
 Summary:        A superset of Lua 5.4 with a focus on general-purpose programming.
 License:        MIT
-URL:            https://github.com/PlutoLang/Pluto/archive/refs/tags
-Source0:        %{version}.tar.gz
+URL:            https://github.com/PlutoLang/Pluto/archive/%{version}/%{name}-%{version}.tar.gz
 BuildRequires:  gcc, make, readline-devel, git
 Requires:       glibc, gcc-libs, readline
 Provides:       libpluto.so
@@ -12,6 +11,9 @@ Conflicts:      pluto
 
 %description
 Pluto is a superset of Lua 5.4 with a focus on general-purpose programming.
+
+%prep
+%autosetup -n Pluto-%{version}
 
 %build
 cd plutolang-%{version}/src
