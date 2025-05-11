@@ -9,7 +9,7 @@ Source0:        https://github.com/PlutoLang/Pluto/archive/refs/tags/%{version}.
 Provides:       libpluto.so
 
 BuildRequires:  make, gcc-c++, readline-devel
-Requires:       glibc, gcc-libs, readline
+Requires:       glibc, readline
 
 %description
 Pluto is a superset of Lua 5.4 with a focus on general-purpose programming. While being remarkably compatible with Lua 5.4 source-code & bytecode, it enhances the standard library & adds more than a dozen highly-desired syntaxes such as switch statements, compound operators, classes, class inheritance, string interpolation, type hinting, enums, and so on.
