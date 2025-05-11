@@ -1,13 +1,15 @@
-Name:           plutolang
-Version:        0.10.4
+%global debug_package %{nil}
+Name:           pluto
+Version:        0.10.5
 Release:        1%{?dist}
 Summary:        A superset of Lua 5.4 with a focus on general-purpose programming.
 License:        MIT
-URL:            https://github.com/PlutoLang/Pluto/archive/%{version}/%{name}-%{version}.tar.gz
-BuildRequires:  gcc, make, readline-devel
-Requires:       glibc, gcc-libs, readline
+URL:            https://github.com/PlutoLang/Pluto
+Source0:        https://github.com/PlutoLang/Pluto/archive/refs/tags/%{version}.tar.gz
 Provides:       libpluto.so
-Conflicts:      pluto
+
+BuildRequires:  make, gcc-c++, readline-devel
+Requires:       glibc, gcc-libs, readline
 
 %description
 Pluto is a superset of Lua 5.4 with a focus on general-purpose programming.
@@ -16,32 +18,29 @@ Pluto is a superset of Lua 5.4 with a focus on general-purpose programming.
 %autosetup -n Pluto-%{version}
 
 %build
-make -j$(nproc) PLAT=linux-readline
+make %{?_smp_mflags} PLAT=linux-readline
 
 %install
-rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/bin
-mkdir -p %{buildroot}/usr/lib
-mkdir -p %{buildroot}/usr/include/pluto
-mkdir -p %{buildroot}/usr/share/licenses/%{name}
-
-install -m 755 plutolang-%{version}/src/pluto %{buildroot}/usr/bin/pluto
-install -m 755 plutolang-%{version}/src/plutoc %{buildroot}/usr/bin/plutoc
-install -m 644 plutolang-%{version}/src/libpluto.so %{buildroot}/usr/lib/libpluto.so
-install -m 644 plutolang-%{version}/src/lua.h %{buildroot}/usr/include/pluto/lua.h
-install -m 644 plutolang-%{version}/src/lua.hpp %{buildroot}/usr/include/pluto/lua.hpp
-install -m 644 plutolang-%{version}/src/lualib.h %{buildroot}/usr/include/pluto/lualib.h
-install -m 644 plutolang-%{version}/src/lauxlib.h %{buildroot}/usr/include/pluto/lauxlib.h
-install -m 644 plutolang-%{version}/src/luaconf.h %{buildroot}/usr/include/pluto/luaconf.h
-install -m 644 plutolang-%{version}/LICENSE %{buildroot}/usr/share/licenses/%{name}/LICENSE
+mkdir -p %{buildroot}%{_bindir}
+mkdir -p %{buildroot}%{_includedir}
+mkdir -p %{buildroot}%{_libdir}
+#mkdir -p %{buildroot}%{_mandir}/man1
+install -p -m 0755 src/pluto src/plutoc %{buildroot}%{_bindir}
+install -p -m 0644 src/lua.h src/luaconf.h src/lualib.h src/lauxlib.h src/lua.hpp %{buildroot}%{_includedir}
+install -p -m 0644 src/libpluto.so src/libplutostatic.a %{buildroot}%{_libdir}
+#install -p -m 0644 doc/lua.1 doc/luac.1 %{buildroot}%{_mandir}/man1
 
 %files
-/usr/bin/pluto
-/usr/bin/plutoc
-/usr/lib/libpluto.so
-/usr/include/pluto/*
-/usr/share/licenses/%{name}/LICENSE
+%{_bindir}/pluto
+%{_bindir}/plutoc
+%{_includedir}/lua.h
+%{_includedir}/luaconf.h
+%{_includedir}/lualib.h
+%{_includedir}/lauxlib.h
+%{_includedir}/lua.hpp
+%{_libdir}/libpluto.so
+%{_libdir}/libplutostatic.a
 
 %changelog
-* Tue Feb 18 2025 Maintainer <sainan@calamity.gg> - 0.10.4-1
-- Initial RPM package
+* Sun May 11 2025 Fábio Rodrigues Ribeiro <farribeiro@gmail.com> - 0.10.5-1
+- Initial Fedora packaging.
