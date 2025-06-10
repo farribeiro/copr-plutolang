@@ -5,7 +5,7 @@ Release:        1%{?dist}
 Summary:        A superset of Lua 5.4 with a focus on general-purpose programming.
 License:        MIT
 URL:            https://github.com/PlutoLang/Pluto
-Source0:        https://github.com/PlutoLang/Pluto/archive/refs/tags/%{version}.tar.gz
+Source0:        %{URL}/archive/refs/tags/%{version}.tar.gz
 Provides:       libpluto.so
 
 BuildRequires:  make, gcc-c++, readline-devel
