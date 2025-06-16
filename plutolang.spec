@@ -1,6 +1,6 @@
 %global debug_package %{nil}
 Name:           pluto
-Version:        0.11.0
+Version:        0.11.1
 Release:        1%{?dist}
 Summary:        A superset of Lua 5.4 with a focus on general-purpose programming.
 License:        MIT
