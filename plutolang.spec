@@ -42,5 +42,5 @@ install -p -m 0644 src/libpluto.so src/libplutostatic.a %{buildroot}%{_libdir}
 %{_libdir}/libplutostatic.a
 
 %changelog
-* Sun May 11 2025 Fábio Rodrigues Ribeiro <farribeiro@gmail.com> - 0.10.5-1
+* Sun May 11 2025 Fábio Rodrigues Ribeiro <farribeiro@gmail.com> and fernando_debian - 0.12.1-1
 - Initial Fedora packaging.
