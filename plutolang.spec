@@ -1,6 +1,6 @@
 %global debug_package %{nil}
 Name:           pluto
-Version:        0.12.1
+Version:        0.12.2
 Release:        1%{?dist}
 Summary:        A superset of Lua 5.4 with a focus on general-purpose programming.
 License:        MIT
@@ -42,5 +42,5 @@ install -p -m 0644 src/libpluto.so src/libplutostatic.a %{buildroot}%{_libdir}
 %{_libdir}/libplutostatic.a
 
 %changelog
-* Sun May 11 2025 Fábio Rodrigues Ribeiro <farribeiro@gmail.com> and fernando_debian - 0.12.1-1
+* Sun May 11 2025 Fábio Rodrigues Ribeiro <farribeiro@gmail.com> and fernando_debian - 0.12.2-1
 - Initial Fedora packaging.
