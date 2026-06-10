@@ -1,6 +1,6 @@
 %global debug_package %{nil}
 Name:           pluto
-Version:        0.12.2
+Version:        0.13.0
 Release:        1%{?dist}
 Summary:        A superset of Lua 5.4 with a focus on general-purpose programming.
 License:        MIT
@@ -8,8 +8,7 @@ URL:            https://github.com/PlutoLang/Pluto
 Source0:        %{URL}/archive/refs/tags/%{version}.tar.gz
 Provides:       libpluto.so
 
-BuildRequires:  make, gcc-c++, readline-devel
-Requires:       readline
+BuildRequires:  make, gcc-c++
 
 %description
 Pluto is a superset of Lua 5.4 with a focus on general-purpose programming. While being remarkably compatible with Lua 5.4 source-code & bytecode, it enhances the standard library & adds more than a dozen highly-desired syntaxes such as switch statements, compound operators, classes, class inheritance, string interpolation, type hinting, enums, and so on.
@@ -18,7 +17,7 @@ Pluto is a superset of Lua 5.4 with a focus on general-purpose programming. Whil
 %autosetup -n Pluto-%{version}
 
 %build
-make %{?_smp_mflags} PLAT=linux-readline
+make %{?_smp_mflags} PLAT=linux
 
 %install
 mkdir -p %{buildroot}%{_bindir}
